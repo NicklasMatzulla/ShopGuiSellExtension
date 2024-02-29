@@ -1,0 +1,32 @@
+#
+# ███████╗████████╗ █████╗ ████████╗██╗ ██████╗██████╗ ███████╗██╗   ██╗  ██████╗ ███████╗
+# ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██╔════╝██║   ██║  ██╔══██╗██╔════╝
+# ███████╗   ██║   ███████║   ██║   ██║██║     ██║  ██║█████╗  ██║   ██║  ██║  ██║█████╗
+# ╚════██║   ██║   ██╔══██║   ██║   ██║██║     ██║  ██║██╔══╝  ╚██╗ ██╔╝  ██║  ██║██╔══╝
+# ███████║   ██║   ██║  ██║   ██║   ██║╚██████╗██████╔╝███████╗ ╚████╔╝██╗██████╔╝███████╗
+# ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝╚═════╝ ╚══════╝  ╚═══╝ ╚═╝╚═════╝ ╚══════╝
+#
+# $name by Nicklas Matzulla, version $version
+# Copyright (c) 2024 Nicklas Matzulla
+#
+
+commands:
+  sellblocks:
+    aliases:
+      - "sellallblocks"
+      - "blocks"
+    description: "Sell all the blocks of your inventory."
+    categories:
+      - "blocks"
+  sellall:
+    description: "Sell all the items of your inventory."
+    categories:
+      - "blocks"
+      - "food"
+      - "ores"
+      - "tools"
+      - "armor"
+      - "farming"
+      - "drops"
+      - "dyes"
+      - "miscellaneous"

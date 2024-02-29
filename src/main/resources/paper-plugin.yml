@@ -1,0 +1,16 @@
+name: $name
+version: '$version'
+main: de.nicklasmatzulla.shopguisellextension.ShopGuiSellExtension
+description: "$description"
+api-version: '$apiVersion'
+
+dependencies:
+  server:
+    ShopGUIPlus:
+      load: BEFORE
+      required: true
+      join-classpath: true
+    Vault:
+      load: BEFORE
+      required: true
+      join-classpath: true

@@ -1,0 +1,21 @@
+#
+# ███████╗████████╗ █████╗ ████████╗██╗ ██████╗██████╗ ███████╗██╗   ██╗  ██████╗ ███████╗
+# ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██╔════╝██║   ██║  ██╔══██╗██╔════╝
+# ███████╗   ██║   ███████║   ██║   ██║██║     ██║  ██║█████╗  ██║   ██║  ██║  ██║█████╗
+# ╚════██║   ██║   ██╔══██║   ██║   ██║██║     ██║  ██║██╔══╝  ╚██╗ ██╔╝  ██║  ██║██╔══╝
+# ███████║   ██║   ██║  ██║   ██║   ██║╚██████╗██████╔╝███████╗ ╚████╔╝██╗██████╔╝███████╗
+# ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝╚═════╝ ╚══════╝  ╚═══╝ ╚═╝╚═════╝ ╚══════╝
+#
+# $name by Nicklas Matzulla, version $version
+# Copyright (c) 2024 Nicklas Matzulla
+#
+
+general:
+  prefix: "<gradient:#8dafd3:#362a6e><bold>SHOP</bold></gradient> <dark_gray>|</dark_gray> "
+  onlyPlayer: "<prefix><red>Only players can execute this command!</red>"
+
+commands:
+  sell:
+    notingToSell: "<prefix><red>You have no items that can be sold!</red>"
+    sold: "<prefix><green>You have sold a total of <aqua><sold_items></aqua> items for <aqua><received_money> USD </aqua>.</green>"
+    moneyFormat: "#,##0.00"
