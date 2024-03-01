@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "de.nicklasmatzulla"
-version = "1.0.0"
+version = "1.1.0"
 description = "An extension for the ShopGuiPlus plugin that allows you to create commands to sell items from specific categories directly."
 
 val lombokVersion = "1.18.30"
@@ -28,12 +28,14 @@ java {
 
 repositories {
     mavenCentral()
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
 }
 
 dependencies {
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    compileOnly("io.papermc.paper:paper-api:$paperApiVersion")
     paperweight.paperDevBundle(paperApiVersion)
     compileOnly("com.github.brcdev-minecraft:shopgui-api:$shopGuiApiVersion")
     compileOnly("com.github.MilkBowl:VaultAPI:$vaultApiVersion")

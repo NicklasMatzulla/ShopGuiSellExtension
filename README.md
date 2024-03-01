@@ -20,6 +20,7 @@ commands:
       - "alias2"
       - "alias3"
     description: "Command description."
+    permission: "shopguisellextension.commands.name"
     categories:
       - "first shopgui shop id"
       - "second shopgui shop id"

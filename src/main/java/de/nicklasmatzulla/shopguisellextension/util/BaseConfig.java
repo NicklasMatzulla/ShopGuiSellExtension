@@ -43,7 +43,7 @@ public class BaseConfig {
         }
     }
 
-    private void loadConfig() {
+    protected void loadConfig() {
         try {
             createConfig();
             this.config = new YamlConfiguration();

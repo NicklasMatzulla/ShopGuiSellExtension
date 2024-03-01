@@ -21,19 +21,29 @@ public class MessagesConfig extends BaseConfig {
 
     private static final MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
 
-    private final Component prefixComponent;
-    private final Component onlyPlayerComponent;
-    private final Component notingToSellComponent;
-    private final String moneyFormat;
+    private Component prefixComponent;
+    private Component onlyPlayerComponent;
+    private Component adminUsageComponent;
+    private Component adminReloadComponent;
+    private Component noPermissionComponent;
+    private Component notingToSellComponent;
+    private String moneyFormat;
 
     @Getter(AccessLevel.NONE)
-    private final TagResolver prefixPlaceholder;
+    private TagResolver prefixPlaceholder;
 
     public MessagesConfig() {
         super(new File("plugins/ShopGuiSellExtension/messages.yml"), "messages.yml");
+        init();
+    }
+
+    private void init() {
         this.prefixComponent = getComponent("general.prefix");
         this.prefixPlaceholder = Placeholder.component("prefix", this.prefixComponent);
         this.onlyPlayerComponent = getComponent("general.onlyPlayer", this.prefixPlaceholder);
+        this.noPermissionComponent = getComponent("general.noPermission", this.prefixPlaceholder);
+        this.adminUsageComponent = getComponent("commands.admin.usage", this.prefixPlaceholder);
+        this.adminReloadComponent = getComponent("commands.admin.reload", this.prefixPlaceholder);
         this.notingToSellComponent = getComponent("commands.sell.notingToSell", this.prefixPlaceholder);
         this.moneyFormat = this.config.getString("commands.sell.moneyFormat", "#,##0.00");
     }
@@ -47,6 +57,11 @@ public class MessagesConfig extends BaseConfig {
         final TagResolver soldItemsPlaceholder = Placeholder.unparsed("sold_items", String.valueOf(soldItems));
         final TagResolver receivedMoneyPlaceholder = Placeholder.unparsed("received_money", receivedMoney);
         return getComponent("commands.sell.sold", this.prefixPlaceholder, soldItemsPlaceholder, receivedMoneyPlaceholder);
+    }
+
+    public void reload() {
+        loadConfig();
+        init();
     }
 
 }

@@ -13,8 +13,12 @@
 general:
   prefix: "<gradient:#8dafd3:#362a6e><bold>SHOP</bold></gradient> <dark_gray>|</dark_gray> "
   onlyPlayer: "<prefix><red>Only players can execute this command!</red>"
+  noPermission: "<prefix><red>You have no permissions for this command!</red>"
 
 commands:
+  admin:
+    usage: "<prefix>Usage <dark_gray>| /<aqua>shopguisellextension</aqua> <<aqua>reload</aqua>></dark_gray>"
+    reload: "<prefix><green>The configurations have been reloaded.</green>"
   sell:
     notingToSell: "<prefix><red>You have no items that can be sold!</red>"
     sold: "<prefix><green>You have sold a total of <aqua><sold_items></aqua> items for <aqua><received_money> USD </aqua>.</green>"

@@ -16,17 +16,22 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class CommandsConfig extends BaseConfig {
 
     private final MessagesConfig messagesConfig;
     private final Economy economy;
-    private final List<Command> commands;
+
+    @Getter
+    private List<Command> commands;
 
     public CommandsConfig(final @NotNull MessagesConfig messagesConfig, final @NotNull Economy economy) {
         super(new File("plugins/ShopGuiSellExtension/commands.yml"), "commands.yml");
         this.economy = economy;
         this.messagesConfig = messagesConfig;
+        init();
+    }
+
+    private void init() {
         this.commands = loadCommands();
     }
 
@@ -39,8 +44,12 @@ public class CommandsConfig extends BaseConfig {
                 try {
                     final List<String> aliases = commandsSection.getStringList(commandName + ".aliases");
                     final String description = commandsSection.getString(commandName + ".description", "");
+                    String permission = commandsSection.getString(commandName + ".permission", "");
+                    if (permission.isEmpty()) {
+                        permission = null;
+                    }
                     final List<String> categories = commandsSection.getStringList(commandName + ".categories");
-                    final CommandOptions commandOptions = new CommandOptions(commandName, aliases, description, categories);
+                    final CommandOptions commandOptions = new CommandOptions(commandName, aliases, description, permission, categories);
                     final Command command = new SellCommand(commandOptions, this.messagesConfig, this.economy);
                     commands.add(command);
                 } catch (final @NotNull Exception e) {
@@ -49,6 +58,11 @@ public class CommandsConfig extends BaseConfig {
             }
         }
         return commands;
+    }
+
+    public void reload() {
+        loadConfig();
+        init();
     }
 
 }

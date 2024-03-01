@@ -20,6 +20,7 @@ commands:
       - "blocks"
   sellall:
     description: "Sell all the items of your inventory."
+    permission: "shopguisellextension.commands.sellall"
     categories:
       - "blocks"
       - "food"

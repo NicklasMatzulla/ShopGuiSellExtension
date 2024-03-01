@@ -4,6 +4,7 @@
 
 package de.nicklasmatzulla.shopguisellextension;
 
+import de.nicklasmatzulla.shopguisellextension.command.ShopGuiSellExtensionCommand;
 import de.nicklasmatzulla.shopguisellextension.config.CommandsConfig;
 import de.nicklasmatzulla.shopguisellextension.config.MessagesConfig;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class ShopGuiSellExtension extends JavaPlugin implements Listener {
     @Getter
     private Economy economy;
 
+    private MessagesConfig messagesConfig;
     private CommandsConfig commandsConfig;
 
     @Override
@@ -39,13 +41,15 @@ public class ShopGuiSellExtension extends JavaPlugin implements Listener {
     }
 
     private void loadConfigs() {
-        final MessagesConfig messagesConfig = new MessagesConfig();
+        this.messagesConfig = new MessagesConfig();
         this.commandsConfig = new CommandsConfig(messagesConfig, this.economy);
     }
 
     private void registerCommands() {
         final CommandMap commandMap = Bukkit.getCommandMap();
         this.commandsConfig.getCommands().forEach(command -> commandMap.register("", command));
+        final ShopGuiSellExtensionCommand shopGuiSellExtensionCommand = new ShopGuiSellExtensionCommand(this.messagesConfig,this.commandsConfig);
+        commandMap.register("", shopGuiSellExtensionCommand);
     }
 
     @Override

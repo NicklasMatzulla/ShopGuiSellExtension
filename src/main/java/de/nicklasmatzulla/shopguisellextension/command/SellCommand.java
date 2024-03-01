@@ -40,6 +40,14 @@ public class SellCommand extends Command {
     @Override
     public boolean execute(final @NotNull CommandSender commandSender, final @NotNull String command, final @NotNull String[] args) {
         if (!(commandSender instanceof final Player player)) {
+            final Component onlyPlayerComponent = this.messagesConfig.getOnlyPlayerComponent();
+            commandSender.sendMessage(onlyPlayerComponent);
+            return true;
+        }
+        final String requiredPermission = this.commandOptions.permission();
+        if (requiredPermission != null && !player.hasPermission(requiredPermission)) {
+            final Component noPermission = this.messagesConfig.getNoPermissionComponent();
+            player.sendMessage(noPermission);
             return true;
         }
         int soldItems = 0;
